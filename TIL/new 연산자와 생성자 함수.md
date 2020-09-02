@@ -9,7 +9,7 @@
 - 빈 객체를 만들어 'this'에 할당
 - 함수 본문 실행. 'this'에 새로운 프로퍼티를 추가해 'this'를 수정
 - 'this'를 반환
-```
+```javascript
 function User(name) {
   // this = {}; (빈 객체가 암시적으로 만들어짐)
   
@@ -31,7 +31,7 @@ function User(name) {
 
 > 재사용 할 필요가 없는 복잡한 객체를 만들 때.
 > 아래 생성자 함수는 익명함수이기 떄문에 어디에도 저장되지 않음. 익명 생성자 함수를 이용하면 재사용 막으며 코드 캡슐화 가능.
-```
+```javascript
 let user = new function() {
   this.name = "John";
   this.isAdmin = false;
@@ -48,7 +48,7 @@ let user = new function() {
 만약 return문이 있다면
 - 객체를 return한다면 this 대신 객체가 반환됨.
 - 원시형을 return한다면 return문은 무시됨.
-```
+```javascript
 // return 뒤에 객체가 오면 생성자 함수는 해당 객체를 반환해주고, 이외의 경우는 this를 반환.
 function BigUser() {
   this.name = "John";
@@ -58,7 +58,7 @@ function BigUser() {
 alert(new BigUser().name); //Godzilla
 ```
 
-```
+```javascript
 // 아무것도 return하지 않음
 function SmallUser(){
   this.name = "John";
@@ -71,7 +71,7 @@ alert(new SmallUser().name); //John
 ## 생성자 내 메서드
 생성자 함수를 사용하면 매개변수를 이용해 객체 내부를 자유롭게 구성 가능.
 프로퍼티뿐만 아니라 메서드도 더할 수 있음.
-```
+```javascript
 function User(name) {
   this.name = name;
   this.sayHi = function() {
